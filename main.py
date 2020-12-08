@@ -1,4 +1,4 @@
-from fastapi import FastAPI, status
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from train_parameters import TrainParameters
 from robo_adviser_sample import RoboAdviserSample
