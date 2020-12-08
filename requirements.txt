@@ -16,4 +16,3 @@ websockets==8.1
 wrapt==1.11.2
 pandas
 numpy
-starlette
