@@ -1,6 +1,5 @@
 from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
-from model_trainer import ModelTrainer
 from train_parameters import TrainParameters
 from robo_adviser_sample import RoboAdviserSample
 
@@ -12,8 +11,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
-
-app.model = ModelTrainer('svm')
 
 @app.get("/")
 def home():
