@@ -16,11 +16,15 @@ def sample():
     return {"message":"Hello Thirumalai"}
 
 @app.post("/train")
-def train(params:TrainParameters):
+async def train(params: TrainParameters):
     print("Model Training Started")
-    return {"message":"train"}
+    app.model =  ModelTrainer(params.model.lower(), params.testsize)
+    accuracy = app.model.train(params.path)
+    return accuracy
 
 @app.post("/predict")
-def predict(data:RoboAdviserSample):
+async def predict(data:RoboAdviserSample):
     print("Predicting")
-    return {"message":"predict"}
+    spicies_map = {0: 'Basic', 1: 'Standard', 2: 'Premium'}
+    profileType = app.model.predict(data)
+    return spicies_map[profileType[0]]
