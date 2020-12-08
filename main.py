@@ -8,15 +8,3 @@ app = FastAPI()
 @app.get("/")
 def home():
     return {"message":"Hello Thirumalai"}
-
-@app.get("/sample")
-def home():
-    return {"message":"Hello Thirumalai"}
-
-@app.post("/train")
-def train(params: TrainParameters):
-    return {"message":"train"}
-
-@app.post("/predict")
-def predict(data:RoboAdviserSample):
-    return {"message":"predict"}
