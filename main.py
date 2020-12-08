@@ -14,13 +14,9 @@ def home():
     return {"message":"Hello Thirumalai"}
 
 @app.post("/train")
-async def train(params: TrainParameters):
-    print("Model Training Started")
-    print(params)
+def train(params: TrainParameters):
     return {"message":"train"}
 
 @app.post("/predict")
-async def predict(data:RoboAdviserSample):
-    print("Predicting")
-    print(data)
+def predict(data:RoboAdviserSample):
     return {"message":"predict"}
