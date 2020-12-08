@@ -1,9 +1,20 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from model_trainer import ModelTrainer
+from train_parameters import TrainParameters
+from robo_adviser_sample import RoboAdviserSample
 
 app = FastAPI()
 
-#domain where this api is hosted for example : localhost:5000/docs to see swagger documentation automagically generated.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
+app.model = ModelTrainer('svm')
 
 @app.get("/")
 def home():
@@ -15,8 +26,10 @@ def sample():
 
 @app.post("/train")
 def train(params):
+    print("Model Training Started")
     return {"message":"train"}
 
 @app.post("/predict")
 def predict(data):
+    print("Predicting")
     return {"message":"predict"}
