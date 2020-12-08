@@ -2,9 +2,17 @@ from fastapi import FastAPI
 from model_trainer import ModelTrainer
 from train_parameters import TrainParameters
 from robo_adviser_sample import RoboAdviserSample
-from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="REST API using FastAPI Async EndPoints")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.model = ModelTrainer('svm')
 
