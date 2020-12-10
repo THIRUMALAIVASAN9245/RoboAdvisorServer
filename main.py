@@ -6,14 +6,6 @@ from starlette.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="REST API using FastAPI")
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 app.model = ModelTrainer('svm')
 
 @app.get("/sample")
