@@ -1,3 +1,4 @@
+from fastapi import FastAPI
 from model_trainer import ModelTrainer
 from train_parameters import TrainParameters
 from robo_adviser_sample import RoboAdviserSample
