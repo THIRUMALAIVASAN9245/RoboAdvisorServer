@@ -3,7 +3,7 @@ from train_parameters import TrainParameters
 from robo_adviser_sample import RoboAdviserSample
 from starlette.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="REST API using FastAPI Async EndPoints")
+app = FastAPI(title="REST API using FastAPI")
 
 app.add_middleware(
     CORSMiddleware,
